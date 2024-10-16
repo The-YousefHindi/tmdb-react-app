@@ -41,8 +41,12 @@
 
 #right-side th, 
 #right-side td {
-    white-space: nowrap; /* Prevent text wrapping */
-    padding: 0.05rem 1rem; /* Adjust horizontal padding for spacing */
+    white-space: nowrap;
+    padding: 0.05rem 1rem; 
+}
+
+#right-side td:hover {
+    cursor: pointer;
 }
 
 #footer-logo {
