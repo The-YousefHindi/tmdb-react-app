@@ -13,7 +13,7 @@
 }
 
 #navbar-content {
-    margin: 0 20rem 0 20rem;
+    margin: 0 20rem;
     display: flex;
     gap: 2rem;
     padding: 1rem 0;
@@ -24,7 +24,6 @@
 #header-lists {
     display: flex;
     align-items: center;
-    gap: 31rem;
 }
 
 #header-left {

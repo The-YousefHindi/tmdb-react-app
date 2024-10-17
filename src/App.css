@@ -3,12 +3,17 @@
     --secondary-color: #01b4e4;
     --tertiary-color: #90cea1;
     --primary-text-color: white;
+    --primary-shadow-color: lightgray;
+    --secondary-background-color: rgb(37, 37, 37);
+    --primary-rating-color: #00ff86;
+    --secondary-rating-color: #e2ff00;
+    --tertiary-rating-color: #ff004d;
+
+    ;
   }
 
 * {
-    margin-top: 0;
-    margin-right: 0;
-    margin-left: 0;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }

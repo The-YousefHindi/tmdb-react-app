@@ -1,5 +1,7 @@
+import MovieList from "./MovieList/MovieList";
+
 export default function MoviesSection() {
     return (
-        <p>Movies Section Placeholder</p>
+        <MovieList />
     )
 }

@@ -1,0 +1,60 @@
+.three-dots-menu {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    display: flex;
+    gap: 0.2rem;
+    z-index: 10;
+  }
+  
+  .dots {
+    font-size: 1rem;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dots:hover {
+    cursor: pointer;
+    background-color: var(--secondary-color);
+  }
+  
+  .options-menu {
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    background-color: var(--primary-text-color);
+    color: var(--secondary-background-color);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    z-index: 15;
+    width: 8rem;
+  }
+  
+  .options-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    color: white;
+  }
+  
+  .options-menu ul li {
+    padding: 0.5rem;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+  }
+  
+  .options-menu ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .options-menu ul li:hover {
+    background-color: var(--secondary-background-color);
+    color: var(--primary-text-color);
+  }
+  
+  .movie-item.blur {
+    filter: blur(4px);
+  }
+  

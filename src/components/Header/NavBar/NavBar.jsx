@@ -16,7 +16,6 @@ export default function NavBar() {
                 </div>
                 
                 <div id="header-lists">
-                
                     <ul id="header-right">
                         <li id="add-icon">+</li>
                         <li id="language-icon">EN</li>
