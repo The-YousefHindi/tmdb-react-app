@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ThreeDotsMenu.css";
+import { SlOptions } from "react-icons/sl";
 
 export default function ThreeDotsMenu({ onBlur }) {
 
@@ -10,13 +11,29 @@ export default function ThreeDotsMenu({ onBlur }) {
         onBlur();
     };
 
+
+    useEffect(() => { 
+        const handleClickAnywhere = () => {
+            if (isOpen) {
+                setIsOpen(false);
+                onBlur();
+            }
+            
+        };
+
+        document.addEventListener("click", handleClickAnywhere);
+
+        return () => {
+            document.removeEventListener("click", handleClickAnywhere);
+        };
+    }, [isOpen, onBlur]);
+
     return (
-        <div className="three-dots-menu">
-            <div className="dots" onClick={handleClick}>
-                <span className="dot"></span>
-                <span className="dot"></span>
-                <span className="dot"></span>
-            </div>
+        <div className="three-dots-menu" onClick={(e) => e.stopPropagation()}>
+            
+            {!isOpen && (<div className="dots" onClick={handleClick}>
+                <span className="options-icon"><SlOptions /></span>
+            </div>)}
 
             {isOpen && (
                 <div className="options-menu">
