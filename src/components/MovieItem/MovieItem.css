@@ -44,5 +44,5 @@
 }
 
 .movie-item-blur {
-    filter: blur(4rem);
+    filter: blur(0.5rem);
   }

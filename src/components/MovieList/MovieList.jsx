@@ -1,8 +1,32 @@
 import { useState, useEffect } from "react";
 import "./MovieList.css";
-import MovieItem from "./MovieItem/MovieItem";
+import MovieItem from "../MovieItem/MovieItem";
 
 export default function MovieList() {
+    const [activeMenuIndex, setActiveMenuIndex] = useState(null);
+
+    const handleMenuClick = (index) => {
+        if (activeMenuIndex === index) {
+            setActiveMenuIndex(null); // Close menu if it's already open
+        } else {
+            setActiveMenuIndex(index); // Open the clicked menu
+        }
+    };
+
+    useEffect(() => { 
+        const handleClickAnywhere = () => {
+            if (activeMenuIndex !== null) {
+                setActiveMenuIndex(null);
+            }
+            
+        };
+
+        document.addEventListener("click", handleClickAnywhere);
+
+        return () => {
+            document.removeEventListener("click", handleClickAnywhere);
+        };
+    }, [activeMenuIndex]);
 
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -38,13 +62,15 @@ export default function MovieList() {
 
     return (
         <div id="movie-list">
-            {movies.map(movie => (
+            {movies.map((movie, index)=> (
                 <MovieItem 
                 key={movie.id}
                 title={movie.title}
                 releaseDate={movie.release_date}
                 posterPath={movie.poster_path}
                 voteAverage={movie.vote_average}
+                isMenuOpen={activeMenuIndex === index}
+                handleMenuClick={() => handleMenuClick(index)}
             />
             ))}
         </div>

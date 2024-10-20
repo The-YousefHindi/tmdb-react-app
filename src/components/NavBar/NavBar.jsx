@@ -1,5 +1,5 @@
 import "./NavBar.css";
-import navBarLogo from "../../../tmdb-header-logo.svg";
+import navBarLogo from "../../tmdb-header-logo.svg";
 
 export default function NavBar() {
     return (
