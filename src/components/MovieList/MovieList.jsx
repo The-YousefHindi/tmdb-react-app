@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import "./MovieList.css";
 import MovieItem from "../MovieItem/MovieItem";
+import MovieListWrapper from "./MovieListWrapper.styles";
 
 export default function MovieList({ buttonClicked }) {
     const [activeMenuIndex, setActiveMenuIndex] = useState(null);
@@ -97,7 +97,7 @@ export default function MovieList({ buttonClicked }) {
     }
 
     return (
-        <div id="movie-list">
+        <MovieListWrapper>
             {movies.map((movie, index)=> (
                 <MovieItem 
                 key={movie.id}
@@ -109,6 +109,6 @@ export default function MovieList({ buttonClicked }) {
                 handleMenuClick={() => handleMenuClick(index)}
             />
             ))}
-        </div>
+        </MovieListWrapper>
     )
 }

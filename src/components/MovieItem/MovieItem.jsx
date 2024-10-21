@@ -1,6 +1,6 @@
 import ThreeDotsMenu from "../ThreeDotsMenu/ThreeDotsMenu";
-import "./MovieItem.css";
 import RatingCircle from "../RatingCircle/RatingCircle";
+import MovieItemContainer from "./MovieItemContainer.styles";
 
 export default function MovieItem({ title, releaseDate, posterPath, voteAverage,
      isMenuOpen, handleMenuClick }) {
@@ -8,7 +8,7 @@ export default function MovieItem({ title, releaseDate, posterPath, voteAverage,
     const votePercentage = +(voteAverage * 10);
 
     return (
-        <div id="movie-section" className="movie-item-container">
+        <MovieItemContainer>
             <div className={`movie-item ${isMenuOpen && "movie-item-blur"}`}>
                 <img src={`https://image.tmdb.org/t/p/w500${posterPath}`} 
                 alt={title}
@@ -19,6 +19,6 @@ export default function MovieItem({ title, releaseDate, posterPath, voteAverage,
                 <p>{releaseDate}</p>
             </div>
             <ThreeDotsMenu isOpen={isMenuOpen} onClick={handleMenuClick}/>
-        </div>
+        </MovieItemContainer>
     )
 }

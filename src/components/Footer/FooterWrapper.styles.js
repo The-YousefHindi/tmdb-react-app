@@ -1,9 +1,10 @@
-#footer {
-    margin: 0;
-    margin-top: 1rem;
-    background-color: var(--primary-color);
-    height: 100%;
-}
+import styled from "@emotion/styled";
+
+const FooterWrapper = styled.section`
+margin: 0;
+margin-top: 1rem;
+background-color: var(--primary-color);
+height: 100%;
 
 #footer-content {
     margin: 0rem 30rem;
@@ -33,23 +34,26 @@
 #right-side {
     color: var(--primary-text-color);
     padding: 3rem 0;
-}
 
-#right-side table {
-    text-align: left;
-}
+    table {
+      text-align: left;
 
-#right-side th, 
-#right-side td {
-    white-space: nowrap;
-    padding: 0.05rem 1rem; 
-}
+      th, td {
+        white-space: nowrap;
+        padding: 0.05rem 1rem;
+      }
 
-#right-side td:hover {
-    cursor: pointer;
-}
+      td:hover {
+        cursor: pointer;
+      }
+    }
+  }
 
 #footer-logo {
     width: 10rem;
     margin-left: 2rem;
 }
+
+`;
+
+export default FooterWrapper;

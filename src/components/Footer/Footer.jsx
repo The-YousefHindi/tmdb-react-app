@@ -1,9 +1,9 @@
-import "./Footer.css";
 import footerLogo from "../../footer-logo.svg"
+import FooterWrapper from "./FooterWrapper.styles";
 
 export default function Footer() {
     return (
-        <section id="footer">
+        <FooterWrapper>
             <div id="footer-content">
                 <div id="left-side">
                     <img id="footer-logo" src={footerLogo} alt="Footer Logo" />
@@ -50,6 +50,6 @@ export default function Footer() {
                     </table>
                 </div>
             </div>
-        </section>
+        </FooterWrapper>
     )
 }

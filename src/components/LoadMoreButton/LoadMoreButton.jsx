@@ -1,9 +1,9 @@
-import "./LoadMoreButton.css";
+import LoadMoreWrapper from "./LoadMoreWrapper.styles";
 
 export default function LoadMoreButton({ onClick }) {
     return (
-        <div id="load-more">
+        <LoadMoreWrapper>
             <p onClick={onClick} id="load-more-button">Load More</p>
-        </div>
+        </LoadMoreWrapper>
     )
 }

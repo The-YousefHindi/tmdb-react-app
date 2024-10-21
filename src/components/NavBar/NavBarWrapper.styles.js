@@ -1,7 +1,8 @@
-.navbar {
-    background-color: var(--primary-color);
-    font-weight: bold;
-}
+import styled from "@emotion/styled";
+
+const NavBarWrapper = styled.section`
+background-color: var(--primary-color);
+font-weight: bold;
 
 #header-logo {
     width: 10rem;
@@ -13,7 +14,7 @@
 }
 
 #navbar-content {
-    margin: 0 20rem;
+    margin: 0 17rem 0 20rem;
     display: flex;
     gap: 2rem;
     padding: 1rem 0;
@@ -74,7 +75,14 @@
 }
 
 #search-icon {
+    color: var(--secondary-color);
    object-fit: contain;
    display: block;
    margin: 0;
+   margin-bottom: -0.2rem;
+   font-size: 1.2rem;
 }
+
+`;
+
+export default NavBarWrapper;

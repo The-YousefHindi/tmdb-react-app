@@ -1,6 +1,7 @@
-.movie-item-container {
-    position: relative;
-  }
+import styled from "@emotion/styled";
+
+const MovieItemContainer = styled.div`
+position: relative;
 
 .movie-item {
     position: relative;
@@ -46,3 +47,7 @@
 .movie-item-blur {
     filter: blur(0.5rem);
   }
+
+`;
+
+export default MovieItemContainer;

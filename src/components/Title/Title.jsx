@@ -1,7 +1,7 @@
-import "./Title.css";
+import TitleWrapper from "./TitleWrapper.styles";
 
 export default function Title() {
     return (
-        <p className="header-title">Popular Movies</p>
+        <TitleWrapper>Popular Movies</TitleWrapper>
     )
 }

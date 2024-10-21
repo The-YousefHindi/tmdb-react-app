@@ -1,17 +1,31 @@
-import "./NavBar.css";
 import navBarLogo from "../../tmdb-header-logo.svg";
+import { FaSearch } from "react-icons/fa";
+import NavBarWrapper from "./NavBarWrapper.styles";
 
-export default function NavBar() {
+
+export default function NavBar({ onHover }) {
     return (
-        <section className="navbar">
+        <NavBarWrapper>
             <div id="navbar-content">
                 <div id="header-left">
                     <img id="header-logo" src={navBarLogo} alt="TMDB LOGO" />
                     <ul id="header-left-list">
-                        <li>Movies</li>
-                        <li>TV Shows</li>
-                        <li>People</li>
-                        <li>More</li>
+                        <li
+                        onMouseEnter={() => onHover(1)}
+                        onMouseLeave={() => onHover(0)}
+                        >Movies</li>
+                        <li
+                        onMouseEnter={() => onHover(2)}
+                        onMouseLeave={() => onHover(0)}
+                        >TV Shows</li>
+                        <li
+                        onMouseEnter={() => onHover(3)}
+                        onMouseLeave={() => onHover(0)}
+                        >People</li>
+                        <li
+                        onMouseEnter={() => onHover(4)}
+                        onMouseLeave={() => onHover(0)}
+                        >More</li>
                     </ul>
                 </div>
                 
@@ -21,12 +35,12 @@ export default function NavBar() {
                         <li id="language-icon">EN</li>
                         <li>Log In</li>
                         <li>Join TMDB</li>
-                        <li> <span id="search-icon">&#x1F50D;</span> </li>
+                        <li> <span id="search-icon"><FaSearch /></span> </li>
                     </ul>
                 </div>
                 
             
             </div>
-        </section>
+        </NavBarWrapper>
     )
 }

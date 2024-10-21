@@ -1,11 +1,12 @@
-.three-dots-menu {
-    position: absolute;
-    top: 0.5rem;
-    right: 0.5rem;
-    z-index: 10;
-  }
-  
-  .dots {
+import styled from "@emotion/styled";
+
+const ThreeDotsMenuWrappper = styled.div`
+position: absolute;
+top: 0.5rem;
+right: 0.5rem;
+z-index: 10;
+
+.dots {
     font-size: 0.8rem;
     color: var(--primary-text-color);
     border-radius: 50%;
@@ -65,4 +66,7 @@
   .movie-item.blur {
     filter: blur(0.5rem);
   }
-  
+
+`;
+
+export default ThreeDotsMenuWrappper;

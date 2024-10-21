@@ -1,5 +1,7 @@
-.rating-circle {
-    width: 2.5rem;
+import styled from "@emotion/styled";
+
+const RatingCircleWrapper = styled.div`
+width: 2.5rem;
     height: 2.5rem;
     margin: -1.3rem 0 0 0.5rem;
     background-color: var(--secondary-background-color);
@@ -9,4 +11,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-}
+`;
+
+export default RatingCircleWrapper;

@@ -1,6 +1,6 @@
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
-import "./RatingCircle.css";
+import RatingCircleWrapper from "./RatingCircleWrapper.styles";
 
 export default function RatingCircle({ percentage }) {
 
@@ -13,7 +13,7 @@ export default function RatingCircle({ percentage }) {
     };
 
     return (
-        <div className="rating-circle">
+        <RatingCircleWrapper>
             <CircularProgressbar
                 value={roundedPercentage}
                 text={`${roundedPercentage}%`}
@@ -24,7 +24,7 @@ export default function RatingCircle({ percentage }) {
                     textSize: "2rem",
                 })}
         />
-        </div>
+        </RatingCircleWrapper>
         
     )
 }
