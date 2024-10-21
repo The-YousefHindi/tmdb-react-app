@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import "./MovieList.css";
 import MovieItem from "../MovieItem/MovieItem";
 
@@ -10,6 +10,10 @@ export default function MovieList({ buttonClicked }) {
     const [page, setPage] = useState(1);
     const apiKey = "1e92eb8fa82cf5696a39821a8c849300";
     const [isFetching, setIsFetching] = useState(false);
+
+    const handleLoadMore = () => {
+        setPage((prevPage) => prevPage + 1); // Increment the page
+    };
 
     const handleMenuClick = (index) => {
         if (activeMenuIndex === index) {
@@ -23,8 +27,7 @@ export default function MovieList({ buttonClicked }) {
         const handleClickAnywhere = () => {
             if (activeMenuIndex !== null) {
                 setActiveMenuIndex(null);
-            }
-            
+            } 
         };
 
         document.addEventListener("click", handleClickAnywhere);
@@ -34,38 +37,40 @@ export default function MovieList({ buttonClicked }) {
         };
     }, [activeMenuIndex]);
 
-    const getMovies = useCallback((currentPage) => {
-        if (isFetching) return;
+    useEffect(() => {
+        const fetchMovies = () => {
+            setIsFetching(true);
+            setLoading(true);
+            const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${page}`;
 
-        setIsFetching(true);
-        setLoading(true);
-
-        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${currentPage}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.results) {
-                setMovies((prevMovies) => {
-                    // Filter out any duplicates based on the movie id
-                    const newMovies = data.results.filter(newMovie => 
-                        !prevMovies.some(movie => movie.id === newMovie.id)
-                    );
-                    return [...prevMovies, ...newMovies];  // Append only unique movies
+            fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.results) {
+                        if (page > 1) {
+                            setMovies((prevMovies) => [...prevMovies, ...data.results]); // Append movies
+                        } else {
+                            setMovies(data.results); // Replace movies
+                        }
+                    }
+                    setLoading(false);
+                    setIsFetching(false);
+                })
+                .catch((error) => {
+                    setError(error);
+                    setLoading(false);
+                    setIsFetching(false);
                 });
-            }
-            // console.log(data.results);
-            setLoading(false);
-            setIsFetching(false);
-        })
-        .catch(error => {
-            console.error("Error fetching data: ", error);
-            setError(error);
-            setLoading(false);
-        })
-    }, [isFetching, apiKey]);
+        };
+
+        fetchMovies();
+    }, [page]); // page and buttonClicked will trigger re-fetch
 
     useEffect(() => {
-        getMovies(page);
-    }, [page, getMovies]);
+        if (buttonClicked && page === 1) {
+            handleLoadMore();
+        }
+    }, [page, buttonClicked]); // Only run this effect when buttonClicked changes
 
     useEffect(() => {
         if (buttonClicked) {
