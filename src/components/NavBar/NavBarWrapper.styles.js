@@ -18,7 +18,7 @@ font-weight: bold;
     margin: 0 17rem 0 20rem;
     display: flex;
     gap: 2rem;
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     align-items: center;
     justify-content: space-between;
 }
@@ -78,11 +78,20 @@ font-weight: bold;
 
 #search-icon {
     color: var(--secondary-color);
-   object-fit: contain;
    display: block;
    margin: 0;
-   margin-bottom: -0.2rem;
-   font-size: 1.2rem;
+   padding: 0;
+   align-self: center;
+   font-size: 1.5rem;
+}
+
+#clear-icon {
+display: block;
+color: var(--primary-text-color);
+font-size: 1.5rem;
+align-self: center;
+padding: 0;
+margin: 0;
 }
 
 .phony {

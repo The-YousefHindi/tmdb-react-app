@@ -1,12 +1,13 @@
 import navBarLogo from "../../tmdb-header-logo.svg";
 import { FaSearch } from "react-icons/fa";
+import { MdOutlineClear } from "react-icons/md";
 import NavBarWrapper from "./NavBarWrapper.styles";
 import NavBarHoverList from "../NavBarHoverList/NavBarHoverList";
 import { useState } from "react";
 import PhonyWrapper from "./PhonyWrapper.styles";
 
 
-export default function NavBar() {
+export default function NavBar({ searchIconClick,onSearchIconClick }) {
 
     const [hoverListIndex, setHoverListIndex] = useState(0);
 
@@ -94,7 +95,10 @@ export default function NavBar() {
                         <li id="language-icon">EN</li>
                         <li>Log In</li>
                         <li>Join TMDB</li>
-                        <li> <span id="search-icon"><FaSearch /></span> </li>
+                        {searchIconClick ?
+                         <li><MdOutlineClear id="clear-icon" onClick={onSearchIconClick}/></li> :
+                            <li><FaSearch id="search-icon" onClick={onSearchIconClick}/></li>
+                        }
                     </ul>
                 </div>
                 

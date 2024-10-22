@@ -7,12 +7,13 @@ right: 0.5rem;
 z-index: 10;
 
 .dots {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     color: var(--primary-text-color);
     border-radius: 50%;
     background-color: var(--primary-color);
     opacity: 75%;
     padding: 0.1rem;
+    display: flex;
   }
 
   .options-icon {

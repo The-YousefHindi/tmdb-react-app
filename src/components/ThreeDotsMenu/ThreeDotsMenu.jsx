@@ -1,4 +1,3 @@
-/* import "./ThreeDotsMenu.css"; */
 import { SlOptions  } from "react-icons/sl";
 import { FaStar, FaList } from "react-icons/fa";
 import { MdFavorite, MdWatchLater } from "react-icons/md";
@@ -10,7 +9,7 @@ export default function ThreeDotsMenu({ isOpen, onClick }) {
         <ThreeDotsMenuWrapper onClick={(e) => e.stopPropagation()}>
             
             {!isOpen && (<div className="dots" onClick={onClick}>
-                <span className="options-icon"><SlOptions /></span>
+                <SlOptions className="options-icon" />
             </div>)}
 
             {isOpen && (
