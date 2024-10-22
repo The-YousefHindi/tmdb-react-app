@@ -7,6 +7,7 @@ font-weight: bold;
 #header-logo {
     width: 10rem;
     height: 2rem;
+    padding-bottom: 0.5rem;
 }
 
 #header-logo:hover {
@@ -53,6 +54,7 @@ font-weight: bold;
     margin: 0;
     font-size: 0.9rem;
     align-items: center;
+    padding-bottom: 0.5rem;
 }
 
 #header-right li:hover {
@@ -81,6 +83,11 @@ font-weight: bold;
    margin: 0;
    margin-bottom: -0.2rem;
    font-size: 1.2rem;
+}
+
+.phony {
+padding-top: 0.5rem;
+position: relative;
 }
 
 `;

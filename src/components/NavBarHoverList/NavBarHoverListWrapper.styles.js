@@ -9,16 +9,15 @@ list-style: none;
 border: 1px solid var(--primary-shadow-color);
 border-radius: 0.3rem;
 width: 10rem;
-margin: -1rem 0 0 ${(props) => props.leftMargin || '30.5rem'};
+margin: 0;
+padding: 1rem 0;
 z-index: 11;
+font-size: small;
+font-weight: 500;
 
 
 li {
-padding: 1rem 1rem 0 1rem;
-}
-
-li:last-child {
-padding-bottom: 1rem;
+padding: 0.3rem 1rem;
 }
 
 li:hover {
