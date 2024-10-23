@@ -15,7 +15,7 @@ font-weight: bold;
 }
 
 #navbar-content {
-    margin: 0 17rem 0 20rem;
+    margin: 0 20rem 0 20rem;
     display: flex;
     gap: 2rem;
     padding: 0.75rem 0;

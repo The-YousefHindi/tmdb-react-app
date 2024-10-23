@@ -13,7 +13,7 @@ justify-content: center;
 #search-bar-content {
 display: flex;
 position: relative;
-margin: 0 16rem 1rem 20rem;
+margin: 0 19rem 1rem 20rem;
 align-items: center;
 }
 

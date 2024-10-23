@@ -2,7 +2,9 @@ import { useState, useEffect } from "react";
 import MovieItem from "../MovieItem/MovieItem";
 import MovieListWrapper from "./MovieListWrapper.styles";
 
-export default function MovieList({ buttonClicked }) {
+export default function MovieList({ buttonClicked, setButtonClicked,
+     sortingChoice, searchButtonClicked, setSearchButtonClicked
+ }) {
     const [activeMenuIndex, setActiveMenuIndex] = useState(null);
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -10,6 +12,34 @@ export default function MovieList({ buttonClicked }) {
     const [page, setPage] = useState(1);
     const apiKey = "1e92eb8fa82cf5696a39821a8c849300";
     const [isFetching, setIsFetching] = useState(false);
+
+    const fetchMovies = () => {
+        setIsFetching(true);
+        setLoading(true);
+        const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${page}&sort_by=${sortingChoice[1]}`;
+        
+        console.log(sortingChoice);
+        console.log(url);
+
+        fetch(url)
+            .then((response) => response.json())
+            .then((data) => {
+                if (data.results) {
+                    if (page > 1) {
+                        setMovies((prevMovies) => [...prevMovies, ...data.results]); // Append movies
+                    } else {
+                        setMovies(data.results); // Replace movies
+                    }
+                }
+                setLoading(false);
+                setIsFetching(false);
+            })
+            .catch((error) => {
+                setError(error);
+                setLoading(false);
+                setIsFetching(false);
+            });
+    };
 
     const handleLoadMore = () => {
         setPage((prevPage) => prevPage + 1); // Increment the page
@@ -38,33 +68,20 @@ export default function MovieList({ buttonClicked }) {
     }, [activeMenuIndex]);
 
     useEffect(() => {
-        const fetchMovies = () => {
-            setIsFetching(true);
-            setLoading(true);
-            const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${page}`;
+        if (!searchButtonClicked) {
+            fetchMovies();
+        } 
+    }, [page, searchButtonClicked]); 
 
-            fetch(url)
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data.results) {
-                        if (page > 1) {
-                            setMovies((prevMovies) => [...prevMovies, ...data.results]); // Append movies
-                        } else {
-                            setMovies(data.results); // Replace movies
-                        }
-                    }
-                    setLoading(false);
-                    setIsFetching(false);
-                })
-                .catch((error) => {
-                    setError(error);
-                    setLoading(false);
-                    setIsFetching(false);
-                });
-        };
-
-        fetchMovies();
-    }, [page]); // page and buttonClicked will trigger re-fetch
+    useEffect( () => {
+        if (searchButtonClicked) {
+            setMovies([]);
+            setPage(1);
+            setButtonClicked(false);
+            fetchMovies();
+            setSearchButtonClicked(false);
+        }
+    }, [searchButtonClicked])
 
     useEffect(() => {
         if (buttonClicked && page === 1) {
