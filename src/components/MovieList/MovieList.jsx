@@ -3,7 +3,7 @@ import MovieItem from "../MovieItem/MovieItem";
 import MovieListWrapper from "./MovieListWrapper.styles";
 
 export default function MovieList({ buttonClicked, setButtonClicked,
-     sortingChoice, searchButtonClicked, setSearchButtonClicked
+     sortingChoice, searchButtonClicked, setSearchButtonClicked, filterChoices
  }) {
     const [activeMenuIndex, setActiveMenuIndex] = useState(null);
     const [movies, setMovies] = useState([]);
@@ -16,11 +16,9 @@ export default function MovieList({ buttonClicked, setButtonClicked,
     const fetchMovies = () => {
         setIsFetching(true);
         setLoading(true);
-        const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${page}&sort_by=${sortingChoice[1]}`;
-        
-        console.log(sortingChoice);
-        console.log(url);
+        let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${page}&sort_by=${sortingChoice[1]}&with_genres=${filterChoices.join(",")}`;
 
+        
         fetch(url)
             .then((response) => response.json())
             .then((data) => {
@@ -68,19 +66,22 @@ export default function MovieList({ buttonClicked, setButtonClicked,
     }, [activeMenuIndex]);
 
     useEffect(() => {
-        if (!searchButtonClicked) {
+        /* if (!searchButtonClicked) {
             fetchMovies();
-        } 
+        } */ 
+
+        fetchMovies();
     }, [page, searchButtonClicked]); 
+
+    
 
     useEffect( () => {
         if (searchButtonClicked) {
-            setMovies([]);
-            setPage(1);
-            setButtonClicked(false);
-            fetchMovies();
-            setSearchButtonClicked(false);
-        }
+        setMovies([]);
+        setPage(1);
+        setButtonClicked(false);
+        setSearchButtonClicked(false);
+    }
     }, [searchButtonClicked])
 
     useEffect(() => {

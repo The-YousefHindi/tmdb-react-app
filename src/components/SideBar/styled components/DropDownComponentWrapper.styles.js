@@ -7,6 +7,7 @@ border: 0.1rem solid var(--primary-shadow-color);
 box-shadow: 0.2rem 0.2rem 1rem var(--primary-shadow-color);
 margin: 0 0 1rem 0;
 display: block;
+border-top: 0;
 
 .label {
 padding: 1rem;
@@ -125,6 +126,11 @@ padding: 0.2rem;
 background-color: var(--secondary-color);
 color: var(--primary-text-color);
 cursor: pointer;
+}
+
+.active-category-button {
+background-color: var(--secondary-color);
+color: var(--primary-text-color);
 }
 
 `;

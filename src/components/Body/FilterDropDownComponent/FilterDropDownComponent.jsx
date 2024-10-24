@@ -2,7 +2,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 /* import { IoMdArrowDropdown } from "react-icons/io"; */
 import { useState, useEffect } from "react";
 
-export default function FilterDropDownComponent() {
+export default function FilterDropDownComponent({ filteringHandler, filterChoices }) {
     const [isDropDownOpen, setIsDropDownOpen] = useState(false);
     /* const [isInnerDropDownOpen, setIsInnerDropDownOpen] = useState(false); */
     const [genres, setGenres] = useState([]);
@@ -43,16 +43,20 @@ export default function FilterDropDownComponent() {
 
         {isDropDownOpen &&
         <div>
-            <section className="release-date-section">
+            {/* <section className="release-date-section">
                 <p className="heading">Release Dates</p>
-            </section>
+            </section> */}
     
             <section className="genres-section">
                 <p className="heading">Genres</p>
                 <div className="category-buttons-container">
                     <ul className="category-buttons">
                         {genres.map((genre) => (
-                            <li key={genre.id} className="category-button">
+                            <li key={genre.id} 
+                            className={`category-button ${filterChoices.includes(genre.id) ?
+                                 'active-category-button' : ''}`}
+                                onClick={() => filteringHandler(genre.id)}
+                            >
                                 {genre.name}
                             </li>
                         ))}

@@ -4,7 +4,7 @@ import { useState } from "react";
 import MoviesSectionWrapper from "./MoviesSectionWrapper.styles";
 
 export default function MoviesSection({ sortingChoice, searchButtonClicked,
-     setSearchButtonClicked }) {
+     setSearchButtonClicked, filterChoices }) {
     const [buttonClicked, setButtonClicked] = useState(false);
 
     const handleLoadMoreButtonClick = () => {
@@ -17,6 +17,7 @@ export default function MoviesSection({ sortingChoice, searchButtonClicked,
             searchButtonClicked={searchButtonClicked}
             setSearchButtonClicked={setSearchButtonClicked}
             setButtonClicked={setButtonClicked}
+            filterChoices={filterChoices}
             />
             {!buttonClicked && <LoadMoreButton onClick={handleLoadMoreButtonClick}/>}
         </MoviesSectionWrapper>
