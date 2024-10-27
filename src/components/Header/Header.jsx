@@ -10,16 +10,40 @@ export default function Header() {
     const [searchBarIsVisible, setSearchBarIsVisible] = useState(false);
     const [isMobileSideListOpen, setIsMobileSideListOpen] = useState(false);
 
+    /**
+     * Handles the mobile sidebar
+     * 
+     * It toggles the mobile sidebar state on/off by inverting the state and updating it
+     * 
+     * @returns {void}
+     * @function handleMobileSideList
+     */
     const handleMobileSideList = () => {
         setIsMobileSideListOpen(!isMobileSideListOpen);
     }
     
     const headerRef = useRef(null);
     
+    /**
+     * Handles the search bar visibility
+     * 
+     * It toggles the search bar visibility on/off by inverting the state and updating it
+     * 
+     * @returns {void}
+     * @function handleSearchBarVisibility
+     */
     const handleSearchBarVisibility = () => {
         setSearchBarIsVisible(!searchBarIsVisible);
     }
-
+    
+    /**
+     * Handles the click event outside the Header component
+     * 
+     * It toggles off the search bar visibility when the click event happens outside the Header component by setting the search bar visibility state false
+     * 
+     * @param {Event} event - The click event object
+     * @function handleClickOutside
+     */
     const handleClickOutside = (event) => {
         if (headerRef.current && !headerRef.current.contains(event.target)) {
             setSearchBarIsVisible(false);

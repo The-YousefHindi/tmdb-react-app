@@ -8,11 +8,26 @@ export default function SortDropDownComponent({ sortingChoiceHandler, sortingCho
     const [isDropDownOpen, setIsDropDownOpen] = useState(false);
     const [isInnerDropDownOpen, setIsInnerDropDownOpen] = useState(false);
 
+    /**
+     * Handles the drop down component
+     * It toggles the dropdown component on/off by inverting and updating the current state boolean value
+     * Also toggles the inner drop down component visibility off
+     * 
+     * @returns {void}
+     * @function handleDropDown
+     */
     const handleDropDown = () => {
         setIsDropDownOpen(!isDropDownOpen);
         setIsInnerDropDownOpen(false);
     }
 
+    /**
+     * Handles the inner drop down component/list
+     * Toggles the inner drop down component/list visibility on/off by inverting and updating the current state value
+     * 
+     * @returns {void}
+     * @function handleInnerDropDown
+     */
     const handleInnerDropDown = () => {
         setIsInnerDropDownOpen(!isInnerDropDownOpen);
     }

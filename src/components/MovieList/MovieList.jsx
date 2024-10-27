@@ -13,6 +13,17 @@ export default function MovieList({ buttonClicked, setButtonClicked,
     const apiKey = "1e92eb8fa82cf5696a39821a8c849300";
     const [isFetching, setIsFetching] = useState(false);
 
+    /**
+     * Fetches the movies from API
+     * 
+     * Updates the fetching and loading states, and fetches the data from the API using the url based on the selected page
+     * There's a conditional statement that ensures there's no appended repetitive data in the JSON file
+     * it also catches errors in case of occurance
+     * 
+     * @param {string} url - The url used to fetch the movies data from the API
+     * @returns {void}
+     * @function fetchMovies
+     */
     const fetchMovies = () => {
         setIsFetching(true);
         setLoading(true);
@@ -39,10 +50,27 @@ export default function MovieList({ buttonClicked, setButtonClicked,
             });
     };
 
+    /**
+     * Handles loading more movies
+     * 
+     * Loads more movies by updating the page state and triggering a refetch for the movies data that fetches new movies and appends it to the previous movies data
+     * 
+     * @returns {void}
+     * @function handleLoadMore
+     */
     const handleLoadMore = () => {
         setPage((prevPage) => prevPage + 1); // Increment the page
     };
 
+    /**
+     * Handles menu clicks
+     * 
+     * Toggles the active state of a menu item based on its index
+     * If the clicked menu is open it toggles it off otherwise toggles it on
+     * 
+     * @param {number} index - The index of the clicked menu
+     * @function handleMenuClick
+     */
     const handleMenuClick = (index) => {
         if (activeMenuIndex === index) {
             setActiveMenuIndex(null); // Close menu if it's already open

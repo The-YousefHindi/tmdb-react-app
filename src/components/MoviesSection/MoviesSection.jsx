@@ -7,6 +7,14 @@ export default function MoviesSection({ sortingChoice, searchButtonClicked,
      setSearchButtonClicked, filterChoices }) {
     const [buttonClicked, setButtonClicked] = useState(false);
 
+    /**
+     * Handles the load more button click event
+     * 
+     * Toggles the load more button visibility on/off by inverting the current state boolean value and updating it
+     * 
+     * @returns {void}
+     * @function handleLoadMoreButtonClick
+     */
     const handleLoadMoreButtonClick = () => {
         setButtonClicked(!buttonClicked);
     }

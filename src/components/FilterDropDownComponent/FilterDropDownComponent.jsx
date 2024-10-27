@@ -8,6 +8,14 @@ export default function FilterDropDownComponent({ filteringHandler, filterChoice
     const [genres, setGenres] = useState([]);
     const apiKey = "1e92eb8fa82cf5696a39821a8c849300";
 
+    /**
+     * Handles the click event on the dropdown component
+     * 
+     * Toggles the drop down open/closed by inverting the current state value and updating it
+     * 
+     * @returns {void}
+     * @function handleDropDown
+     */
     const handleDropDown = () => {
         setIsDropDownOpen(!isDropDownOpen);
         /* setIsInnerDropDownOpen(false); */
@@ -17,6 +25,15 @@ export default function FilterDropDownComponent({ filteringHandler, filterChoice
         setIsInnerDropDownOpen(!isInnerDropDownOpen);
     } */
 
+    /**
+     * Fetches movie genres from API
+     * 
+     * Uses try and catch to try fetching the movie genres data, store it in a JSON file, and update the Genres state
+     * Also catches error and reports it to console in case it occured
+     * 
+     * @returns {void}
+     * @function fetchGenres 
+     */
     const fetchGenres = async () => {
         try {
             const response = await fetch(

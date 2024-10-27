@@ -6,6 +6,13 @@ export default function RatingCircle({ percentage }) {
 
     const roundedPercentage = Math.round(percentage);
 
+    /**
+     * Gets the color of the rating circle for a movie based on its rating
+     * 
+     * @param {number} value - The number that determines the color of the rating circle
+     * @returns {string}
+     * @function getPathColor
+     */
     const getPathColor = (value) => {
         if (value > 70) return "var(--primary-rating-color)";
         if (value > 50) return "var(--secondary-rating-color)"; 

@@ -13,10 +13,27 @@ export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSide
 
     const [hoverListIndex, setHoverListIndex] = useState(0);
 
+    /**
+     * Handles hovering over the NavBar list
+     * 
+     * Updates the hover list index responsible for showing a certain hover list when hovering over the NavBar items
+     * 
+     * @param {number} index 
+     * @returns {void}
+     * @function handleNavBarListHover
+     */
     const handleNavBarListHover = (index) => {
         setHoverListIndex(index);
     }
 
+    /**
+     * Handles leaving hover 
+     * 
+     * Sets the hover list index state to 0 when the user stops hovering over a certain NavBar list which toggles the hover list visibility off
+     * 
+     * @returns {void}
+     * @function handleHoverLeave
+     */
     const handleHoverLeave = () => {
             setHoverListIndex(0);
     }
