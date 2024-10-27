@@ -14,9 +14,12 @@ export default function MovieItem({ title, releaseDate, posterPath, voteAverage,
                 alt={title}
                 title={title}
                 />
+                <div className="movie-details-wrapper">
                 <RatingCircle percentage={votePercentage}/>
                 <h3>{title}</h3>
                 <p>{releaseDate}</p>
+                </div>
+                
             </div>
             <ThreeDotsMenu isOpen={isMenuOpen} onClick={handleMenuClick}/>
         </MovieItemContainer>

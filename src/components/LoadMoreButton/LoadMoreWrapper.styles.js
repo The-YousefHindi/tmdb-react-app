@@ -12,14 +12,24 @@ padding: 0.75rem;
   font-weight: bold;
   color: var(--primary-text-color);
   text-align: center;
-  width: 10rem;
+  width: 11rem;
   background: none;
   border: none;
 
   &:hover {
     color: var(--primary-color);
     cursor: pointer;
+  }
+
 }
+
+@media (max-width: 320px) {
+#load-more-button {
+  margin: 0 3.5rem;
+  font-size: large;
+}
+}
+
 `;
 
 export default LoadMoreWrapper;

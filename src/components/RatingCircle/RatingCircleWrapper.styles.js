@@ -11,6 +11,10 @@ width: 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
+
+@media (max-width: 320px) {
+display: none;
+}
 `;
 
 export default RatingCircleWrapper;

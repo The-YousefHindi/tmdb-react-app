@@ -5,9 +5,11 @@ import NavBarWrapper from "./NavBarWrapper.styles";
 import NavBarHoverList from "../NavBarHoverList/NavBarHoverList";
 import { useState } from "react";
 import PhonyWrapper from "./PhonyWrapper.styles";
+import { FaList } from "react-icons/fa6";
 
 
-export default function NavBar({ searchIconClick,onSearchIconClick }) {
+
+export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSideListOpen, handleMobileSideList }) {
 
     const [hoverListIndex, setHoverListIndex] = useState(0);
 
@@ -23,6 +25,7 @@ export default function NavBar({ searchIconClick,onSearchIconClick }) {
         <NavBarWrapper>
             <div id="navbar-content">
                 <div id="header-left">
+                    <FaList onClick={handleMobileSideList} className={`mobile-side-list ${isMobileSideListOpen && 'open'}`}/>
                     <img id="header-logo" src={navBarLogo} alt="TMDB LOGO" />
                     <ul id="header-left-list" >
                         <PhonyWrapper 

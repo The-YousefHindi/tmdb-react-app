@@ -68,6 +68,10 @@ z-index: 10;
     filter: blur(0.5rem);
   }
 
+@media (max-width: 320px) {
+display: none;
+}
+
 `;
 
 export default ThreeDotsMenuWrappper;
