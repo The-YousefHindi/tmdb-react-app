@@ -7,7 +7,7 @@ background-color: var(--primary-color);
 height: 100%;
 
 #footer-content {
-    margin: 0rem 30rem;
+    margin: 0rem 35rem;
     padding: 2rem 0;
     display: flex;
     gap: 2rem;

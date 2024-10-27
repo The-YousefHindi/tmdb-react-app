@@ -2,7 +2,6 @@ import MoviesSection from "../MoviesSection/MoviesSection";
 import SideBar from "../SideBar/SideBar";
 import BodyWrapper from "./BodyWrapper.styles";
 import { useState, useEffect } from "react";
-import axios from "axios";
 
 export default function Body() {
     const [isSearchButtonClicked, setIsSearchButtonClicked] = useState(true);

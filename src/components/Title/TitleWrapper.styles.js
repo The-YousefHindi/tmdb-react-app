@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
-const TitleWrapper = styled.p`
-margin: 2rem 20rem 1rem 15rem;
+const TitleWrapper = styled.h1`
+margin: 2rem 20rem 1rem 12rem;
 font-weight: 700;
 font-size: x-large;
 

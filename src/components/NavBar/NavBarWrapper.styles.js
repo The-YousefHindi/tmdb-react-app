@@ -19,7 +19,7 @@ display: none;
 }
 
 #navbar-content {
-    margin: 0 15rem 0 15rem;
+    margin: 0 12rem 0 12rem;
     display: flex;
     gap: 2rem;
     padding: 0.75rem 0;

@@ -70,7 +70,7 @@ transform: rotate(0);
 }
 
 .drop-down-ul-container {
-width: 14.9rem;
+width: 21.9rem;
 font-size: small;
 background-color: var(--primary-text-color);
 border: 0.1rem solid var(--primary-shadow-color); 

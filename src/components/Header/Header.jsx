@@ -1,12 +1,12 @@
 import NavBar from "../NavBar/NavBar";
-import Title from "../Title/Title";
+import TitleWrapper from "../Title/TitleWrapper.styles";
 import HeaderWrapper from "./HeaderWrapper.styles";
 import SearchBar from "../SearchBar/SearchBar";
 import { useState, useEffect, useRef } from "react";
 import MobileSideList from "../MobileSideList/MobileSideList";
 
 
-export default function Header() {
+export default function Header({ Title, setPageTitle }) {
     const [searchBarIsVisible, setSearchBarIsVisible] = useState(false);
     const [isMobileSideListOpen, setIsMobileSideListOpen] = useState(false);
 
@@ -66,9 +66,10 @@ export default function Header() {
              searchIconClick={searchBarIsVisible}
              isMobileSideListOpen={isMobileSideListOpen}
              handleMobileSideList={handleMobileSideList}
+             setPageTitle={setPageTitle}
              />
             {searchBarIsVisible && <SearchBar />}
-            <Title />
+            <TitleWrapper>{Title}</TitleWrapper>
         </HeaderWrapper>
     )
 }

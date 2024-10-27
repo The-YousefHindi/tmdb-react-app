@@ -5,7 +5,7 @@ const SearchButtonWrapper = styled.div`
 p {
 background-color: var(--primary-shadow-color);
 text-align: center;
-width: 18rem;
+width: 24rem;
 color: var(--secondary-text-color);
 border: 0;
 margin: 1rem 0;

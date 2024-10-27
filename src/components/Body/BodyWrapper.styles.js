@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 const BodyWrapper = styled.div`
-margin: 0 15rem 0.2rem 15rem;
+margin: 0 12rem 0.2rem 12rem;
 display: flex;
 gap: 2rem;
 justify-content: space-between;

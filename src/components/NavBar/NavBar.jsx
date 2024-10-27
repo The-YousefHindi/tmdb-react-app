@@ -6,12 +6,25 @@ import NavBarHoverList from "../NavBarHoverList/NavBarHoverList";
 import { useState } from "react";
 import PhonyWrapper from "./PhonyWrapper.styles";
 import { FaList } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 
 
-export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSideListOpen, handleMobileSideList }) {
+export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSideListOpen, handleMobileSideList, setPageTitle }) {
 
     const [hoverListIndex, setHoverListIndex] = useState(0);
+    const navigate = useNavigate();
+
+    const handleNavigateToPopular = () => {
+        navigate("/PopularMovies");
+        setPageTitle("Popular Movies")
+        handleHoverLeave();
+    }
+
+    const handleNavigateToHome = () => {
+        navigate("/");
+        setPageTitle("Home");
+    }
 
     /**
      * Handles hovering over the NavBar list
@@ -43,7 +56,7 @@ export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSide
             <div id="navbar-content">
                 <div id="header-left">
                     <FaList onClick={handleMobileSideList} className={`mobile-side-list ${isMobileSideListOpen && 'open'}`}/>
-                    <img id="header-logo" src={navBarLogo} alt="TMDB LOGO" />
+                    <img id="header-logo" src={navBarLogo} alt="TMDB LOGO" onClick={handleNavigateToHome}/>
                     <ul id="header-left-list" >
                         <PhonyWrapper 
                         onMouseEnter={() => handleNavBarListHover(1)}
@@ -53,7 +66,7 @@ export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSide
                             <div className="phony">
                                 {(hoverListIndex === 1) &&
                                 <NavBarHoverList>
-                                    <li>Popular</li>
+                                    <li onClick={handleNavigateToPopular}>Popular</li>
                                     <li>Now Playing</li>
                                     <li>Upcoming</li>
                                     <li>Top Rated</li>
