@@ -42,7 +42,7 @@ export default function SortDropDownComponent({ sortingChoiceHandler, sortingCho
         <>
             
 
-            <section className="label-section" onClick={handleDropDown}>
+            <section className="label-section" onClick={handleDropDown} data-testid="sorting-dropdown-toggle">
                 <p className="label">Sort</p>
                 <RiArrowDropDownLine 
                 className={`drop-down-icon ${isDropDownOpen ? 'rotate' : ''}`}/>
