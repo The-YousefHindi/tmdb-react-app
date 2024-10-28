@@ -1,7 +1,7 @@
 import MoviesSection from "../MoviesSection/MoviesSection";
 import SideBar from "../SideBar/SideBar";
 import BodyWrapper from "./BodyWrapper.styles";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Body() {
     const [isSearchButtonClicked, setIsSearchButtonClicked] = useState(true);
@@ -10,9 +10,6 @@ export default function Body() {
     const [filterChoices, setFilterChoices] = useState([]);
     const [isSearchButtonActive, setIsSearchButtonActive] = useState(false);
 
-    useEffect(() => {
-        console.log("Search button clicked state updated:", isSearchButtonClicked);
-    }, [isSearchButtonClicked]);
 
     /**
      * Handles the click event of the search button
