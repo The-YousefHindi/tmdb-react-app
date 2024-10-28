@@ -4,7 +4,7 @@ import FooterWrapper from "./FooterWrapper.styles";
 export default function Footer() {
     return (
         <FooterWrapper>
-            <div id="footer-content">
+            <div id="footer-content" data-testid="footer-content">
                 <div id="left-side">
                     <img id="footer-logo" src={footerLogo} alt="Footer Logo" />
                     <p id="user-greeting">Hi User!</p>
