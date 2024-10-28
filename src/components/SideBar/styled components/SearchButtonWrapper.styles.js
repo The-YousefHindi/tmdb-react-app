@@ -24,6 +24,12 @@ background-color: var(--primary-color);
 cursor: pointer;
 }
 
+@media (max-width: 320px) {
+    p {
+        width: 18rem;
+    }
+}
+
 `;
 
 export default SearchButtonWrapper;
