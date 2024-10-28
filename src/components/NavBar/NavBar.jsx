@@ -10,20 +10,18 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSideListOpen, handleMobileSideList, setPageTitle }) {
+export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSideListOpen, handleMobileSideList }) {
 
     const [hoverListIndex, setHoverListIndex] = useState(0);
     const navigate = useNavigate();
 
     const handleNavigateToPopular = () => {
         navigate("/PopularMovies");
-        setPageTitle("Popular Movies")
         handleHoverLeave();
     }
 
     const handleNavigateToHome = () => {
         navigate("/");
-        setPageTitle("Home");
     }
 
     /**

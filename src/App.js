@@ -11,26 +11,27 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [pageTitle, setPageTitle] = useState('Home');
-  /* const location = useLocation();
+
+  function PageContent() {
+    const location = useLocation();
 
   useEffect(() => {
     switch (location.pathname) {
       case "/":
         setPageTitle("Home");
         break;
-      case "PopularMovies":
+      case "/PopularMovies":
         setPageTitle("Popular Movies");
         break;
       default:
         setPageTitle("");
         break;
     }
-  }, [location.pathname]); */
+  }, [location.pathname]);
 
-  return (
-    <div className="app-wrapper">
-      <Router>
-        <Header Title={pageTitle || "Home"} setPageTitle={setPageTitle}/>
+    return (
+      <>
+        <Header Title={pageTitle} setPageTitle={setPageTitle}/>
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
@@ -39,6 +40,16 @@ function App() {
             </Routes>
           </main>
         <Footer />
+      </>
+    )
+  }
+
+  
+
+  return (
+    <div className="app-wrapper">
+      <Router>
+        <PageContent />
       </Router>
     </div>
     

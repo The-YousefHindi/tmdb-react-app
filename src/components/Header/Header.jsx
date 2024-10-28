@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import MobileSideList from "../MobileSideList/MobileSideList";
 
 
-export default function Header({ Title, setPageTitle }) {
+export default function Header({ Title }) {
     const [searchBarIsVisible, setSearchBarIsVisible] = useState(false);
     const [isMobileSideListOpen, setIsMobileSideListOpen] = useState(false);
 
@@ -66,7 +66,6 @@ export default function Header({ Title, setPageTitle }) {
              searchIconClick={searchBarIsVisible}
              isMobileSideListOpen={isMobileSideListOpen}
              handleMobileSideList={handleMobileSideList}
-             setPageTitle={setPageTitle}
              />
             {searchBarIsVisible && <SearchBar />}
             <TitleWrapper>{Title}</TitleWrapper>
