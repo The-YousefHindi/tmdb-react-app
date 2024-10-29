@@ -94,10 +94,6 @@ export default function MovieList({ buttonClicked, setButtonClicked,
     }, [activeMenuIndex]);
 
     useEffect(() => {
-        /* if (!searchButtonClicked) {
-            fetchMovies();
-        } */ 
-
         fetchMovies();
     }, [page, searchButtonClicked]); 
 
