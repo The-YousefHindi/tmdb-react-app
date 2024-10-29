@@ -37,7 +37,7 @@ z-index: 10;
     color: var(--secondary-text-color);
     border-radius: 0.5rem;
     z-index: 15;
-    width: 8rem;
+    width: 10rem;
     align-items: ce;
     margin-right: -4rem;
   }

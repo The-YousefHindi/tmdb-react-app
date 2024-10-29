@@ -8,7 +8,7 @@ export default function ThreeDotsMenu({ isOpen, onClick }) {
     return (
         <ThreeDotsMenuWrapper onClick={(e) => e.stopPropagation()}>
             
-            {!isOpen && (<div className="dots" onClick={onClick}>
+            {!isOpen && (<div className="dots" onClick={onClick} >
                 <SlOptions className="options-icon" />
             </div>)}
 
