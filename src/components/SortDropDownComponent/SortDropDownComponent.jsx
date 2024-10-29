@@ -53,7 +53,7 @@ export default function SortDropDownComponent({ sortingChoiceHandler, sortingCho
             <p className="heading">Sort Results By</p>
 
             <div className="inner-drop-down">
-                <div className="inner-drop-down-list" onClick={handleInnerDropDown}>
+                <div className="inner-drop-down-list" onClick={handleInnerDropDown} data-testid="toggle-inner-dropdown-sorting">
                     <p>{sortingChoice[0]}</p>
                     <IoMdArrowDropdown className="inner-drop-down-icon"/>
                 </div>

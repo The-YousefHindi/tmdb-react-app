@@ -33,4 +33,43 @@ describe('SortDropDown Component', ( () => {
 
        })
 
+      test('Inner drop down list toggles open/close on click', () => { 
+        render(<SortDropDownComponent sortingChoice={['Popularity Descending', 'popularity.desc']}/>);
+
+        const toggleSortingDropDown = screen.getByTestId('sorting-dropdown-toggle');
+        fireEvent.click(toggleSortingDropDown);
+
+        const toggleInnerDropDownSorting = screen.getByTestId('toggle-inner-dropdown-sorting');
+
+        expect(screen.queryByText('Popularity Ascending')).not.toBeInTheDocument();
+        expect(screen.queryByText('Rating Descending')).not.toBeInTheDocument();
+        expect(screen.queryByText('Rating Ascending')).not.toBeInTheDocument();
+        expect(screen.queryByText('Release Date Descending')).not.toBeInTheDocument();
+        expect(screen.queryByText('Release Date Ascending')).not.toBeInTheDocument();
+        expect(screen.queryByText('Title (A-Z)')).not.toBeInTheDocument();
+        expect(screen.queryByText('Title (Z-A)')).not.toBeInTheDocument();
+
+        fireEvent.click(toggleInnerDropDownSorting);
+
+        expect(screen.queryByText('Popularity Ascending')).toBeInTheDocument();
+        expect(screen.queryByText('Rating Descending')).toBeInTheDocument();
+        expect(screen.queryByText('Rating Ascending')).toBeInTheDocument();
+        expect(screen.queryByText('Release Date Descending')).toBeInTheDocument();
+        expect(screen.queryByText('Release Date Ascending')).toBeInTheDocument();
+        expect(screen.queryByText('Title (A-Z)')).toBeInTheDocument();
+        expect(screen.queryByText('Title (Z-A)')).toBeInTheDocument();
+
+        fireEvent.click(toggleInnerDropDownSorting);
+
+        expect(screen.queryByText('Popularity Ascending')).not.toBeInTheDocument();
+        expect(screen.queryByText('Rating Descending')).not.toBeInTheDocument();
+        expect(screen.queryByText('Rating Ascending')).not.toBeInTheDocument();
+        expect(screen.queryByText('Release Date Descending')).not.toBeInTheDocument();
+        expect(screen.queryByText('Release Date Ascending')).not.toBeInTheDocument();
+        expect(screen.queryByText('Title (A-Z)')).not.toBeInTheDocument();
+        expect(screen.queryByText('Title (Z-A)')).not.toBeInTheDocument();
+
+       })
+      
+
 }))
