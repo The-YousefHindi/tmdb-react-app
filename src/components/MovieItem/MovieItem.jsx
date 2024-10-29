@@ -21,7 +21,7 @@ export default function MovieItem({ title, releaseDate, posterPath, voteAverage,
                 </div>
                 
             </div>
-            <ThreeDotsMenu isOpen={isMenuOpen} onClick={handleMenuClick}/>
+            <ThreeDotsMenu isOpen={isMenuOpen} onClick={handleMenuClick} />
         </MovieItemContainer>
     )
 }
