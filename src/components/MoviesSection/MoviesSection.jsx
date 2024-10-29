@@ -27,7 +27,7 @@ export default function MoviesSection({ sortingChoice, searchButtonClicked,
             setButtonClicked={setButtonClicked}
             filterChoices={filterChoices}
             />
-            {!buttonClicked && <LoadMoreButton onClick={handleLoadMoreButtonClick}/>}
+            {!buttonClicked && <LoadMoreButton onClick={handleLoadMoreButtonClick} />}
         </MoviesSectionWrapper>
     )
 }
