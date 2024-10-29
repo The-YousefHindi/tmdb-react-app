@@ -52,7 +52,7 @@ export default function FilterDropDownComponent({ filteringHandler, filterChoice
 
     return (
         <>
-        <section className="label-section" onClick={handleDropDown}>
+        <section className="label-section" onClick={handleDropDown} data-testid="filter-dropdown-toggle">
             <p className="label">Filter</p>
             <RiArrowDropDownLine 
             className={`drop-down-icon ${isDropDownOpen ? 'rotate' : ''}`}/>
