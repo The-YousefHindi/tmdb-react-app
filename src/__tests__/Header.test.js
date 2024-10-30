@@ -174,5 +174,80 @@ describe('Header Component', () => {
         expect(screen.queryByText('Support')).toBeInTheDocument();
         expect(screen.queryByText('API')).toBeInTheDocument();
     })
+
+    test('Hovering over the navbar elements toggles on/off the visibility of their corresponding hover lists', () => { 
+        render(
+            <MemoryRouter>
+                <Header />
+            </MemoryRouter>
+        );
+
+        const hoverOverMovies = screen.getByTestId('movies-navbar-hover');
+        const hoverOverTVShows = screen.getByTestId('tvshows-navbar-hover');
+        const hoverOverPeople = screen.getByTestId('people-navbar-hover');
+        const hoverOverMore = screen.getByTestId('more-navbar-hover');
+
+        
+        expect(screen.queryByText('Now Playing')).not.toBeInTheDocument();
+        expect(screen.queryByText('Airing Today')).not.toBeInTheDocument();
+        expect(screen.queryByText('Popular People')).not.toBeInTheDocument();
+        expect(screen.queryByText('Discussions')).not.toBeInTheDocument();
+
+        fireEvent.mouseOver(hoverOverMovies);
+
+        expect(screen.queryByText('Now Playing')).toBeInTheDocument();
+        expect(screen.queryByText('Airing Today')).not.toBeInTheDocument();
+        expect(screen.queryByText('Popular People')).not.toBeInTheDocument();
+        expect(screen.queryByText('Discussions')).not.toBeInTheDocument();
+
+        fireEvent.mouseOut(hoverOverMovies);
+
+        expect(screen.queryByText('Now Playing')).not.toBeInTheDocument();
+        expect(screen.queryByText('Airing Today')).not.toBeInTheDocument();
+        expect(screen.queryByText('Popular People')).not.toBeInTheDocument();
+        expect(screen.queryByText('Discussions')).not.toBeInTheDocument();
+        
+        fireEvent.mouseOver(hoverOverTVShows);
+
+        expect(screen.queryByText('Now Playing')).not.toBeInTheDocument();
+        expect(screen.queryByText('Airing Today')).toBeInTheDocument();
+        expect(screen.queryByText('Popular People')).not.toBeInTheDocument();
+        expect(screen.queryByText('Discussions')).not.toBeInTheDocument();
+
+        fireEvent.mouseOut(hoverOverTVShows);
+
+        expect(screen.queryByText('Now Playing')).not.toBeInTheDocument();
+        expect(screen.queryByText('Airing Today')).not.toBeInTheDocument();
+        expect(screen.queryByText('Popular People')).not.toBeInTheDocument();
+        expect(screen.queryByText('Discussions')).not.toBeInTheDocument();
+
+        fireEvent.mouseOver(hoverOverPeople);
+
+        expect(screen.queryByText('Now Playing')).not.toBeInTheDocument();
+        expect(screen.queryByText('Airing Today')).not.toBeInTheDocument();
+        expect(screen.queryByText('Popular People')).toBeInTheDocument();
+        expect(screen.queryByText('Discussions')).not.toBeInTheDocument();
+
+        fireEvent.mouseOut(hoverOverPeople);
+
+        expect(screen.queryByText('Now Playing')).not.toBeInTheDocument();
+        expect(screen.queryByText('Airing Today')).not.toBeInTheDocument();
+        expect(screen.queryByText('Popular People')).not.toBeInTheDocument();
+        expect(screen.queryByText('Discussions')).not.toBeInTheDocument();
+
+        fireEvent.mouseOver(hoverOverMore);
+
+        expect(screen.queryByText('Now Playing')).not.toBeInTheDocument();
+        expect(screen.queryByText('Airing Today')).not.toBeInTheDocument();
+        expect(screen.queryByText('Popular People')).not.toBeInTheDocument();
+        expect(screen.queryByText('Discussions')).toBeInTheDocument();
+
+        fireEvent.mouseOut(hoverOverMore);
+
+        expect(screen.queryByText('Now Playing')).not.toBeInTheDocument();
+        expect(screen.queryByText('Airing Today')).not.toBeInTheDocument();
+        expect(screen.queryByText('Popular People')).not.toBeInTheDocument();
+        expect(screen.queryByText('Discussions')).not.toBeInTheDocument();
+    })
     
 })
