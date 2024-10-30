@@ -91,7 +91,6 @@ describe('Header Component', () => {
 
         expect(screen.queryByPlaceholderText('Search for a movie, tv show, person...')).not.toBeInTheDocument();
 
-
      })
 
     

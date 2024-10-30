@@ -60,11 +60,11 @@ export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSide
                         onMouseEnter={() => handleNavBarListHover(1)}
                         onMouseLeave={() => handleHoverLeave()}
                         >
-                            <li>Movies</li>
+                            <li data-testid="movies-navbar-hover" >Movies</li>
                             <div className="phony">
                                 {(hoverListIndex === 1) &&
                                 <NavBarHoverList>
-                                    <li onClick={handleNavigateToPopular}>Popular</li>
+                                    <li onClick={handleNavigateToPopular} data-testid="click-popular-movies" >Popular</li>
                                     <li>Now Playing</li>
                                     <li>Upcoming</li>
                                     <li>Top Rated</li>
