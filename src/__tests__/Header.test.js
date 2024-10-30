@@ -58,5 +58,41 @@ describe('Header Component', () => {
 
      })
 
+    test('Search Bar visibility toggles on/off when the user clicks on the responsible icons', async () => { 
+        render(
+            <MemoryRouter>
+                <Header />
+            </MemoryRouter>
+        );
+
+        let clickSearchIcon = screen.getByTestId('click-search-icon');
+
+        expect(screen.queryByPlaceholderText('Search for a movie, tv show, person...')).not.toBeInTheDocument();
+
+        fireEvent.click(clickSearchIcon);
+
+        expect(screen.queryByPlaceholderText('Search for a movie, tv show, person...')).toBeInTheDocument();
+
+        let clickClearIcon = await waitFor(() => screen.getByTestId('click-clear-icon'));
+
+        fireEvent.click(clickClearIcon);
+
+        expect(screen.queryByPlaceholderText('Search for a movie, tv show, person...')).not.toBeInTheDocument();
+
+        clickSearchIcon = await waitFor(() => screen.getByTestId('click-search-icon'));
+
+        fireEvent.click(clickSearchIcon);
+
+        expect(screen.queryByPlaceholderText('Search for a movie, tv show, person...')).toBeInTheDocument();
+
+        clickClearIcon = await waitFor(() => screen.getByTestId('click-clear-icon'));
+
+        fireEvent.click(clickClearIcon);
+
+        expect(screen.queryByPlaceholderText('Search for a movie, tv show, person...')).not.toBeInTheDocument();
+
+
+     })
+
     
 })
