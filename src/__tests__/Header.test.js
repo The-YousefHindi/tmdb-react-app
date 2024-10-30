@@ -35,5 +35,28 @@ describe('Header Component', () => {
 
      })
 
+    test('Search Bar visibility toggles off when the user clicks on the clear icon', async () => { 
+        render(
+            <MemoryRouter>
+                <Header />
+            </MemoryRouter>
+        );
+
+        const clickSearchIcon = screen.getByTestId('click-search-icon');
+
+        expect(screen.queryByPlaceholderText('Search for a movie, tv show, person...')).not.toBeInTheDocument();
+
+        fireEvent.click(clickSearchIcon);
+
+        expect(screen.queryByPlaceholderText('Search for a movie, tv show, person...')).toBeInTheDocument();
+
+        const clickClearIcon = await waitFor(() => screen.getByTestId('click-clear-icon'));
+
+        fireEvent.click(clickClearIcon);
+
+        expect(screen.queryByPlaceholderText('Search for a movie, tv show, person...')).not.toBeInTheDocument();
+
+     })
+
     
 })
