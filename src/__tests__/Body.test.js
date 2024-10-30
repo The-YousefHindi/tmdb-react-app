@@ -1,8 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import Body from "../components/Body/Body";
 import '@testing-library/jest-dom';
-import MoviesSection from "../components/MoviesSection/MoviesSection";
-import SideBar from "../components/SideBar/SideBar";
 
 
 describe('Body Component', () => {

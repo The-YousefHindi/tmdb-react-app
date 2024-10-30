@@ -127,8 +127,8 @@ export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSide
                         <li>Log In</li>
                         <li>Join TMDB</li>
                         {searchIconClick ?
-                         <li><MdOutlineClear id="clear-icon" onClick={onSearchIconClick}/></li> :
-                            <li><FaSearch id="search-icon" onClick={onSearchIconClick}/></li>
+                         <li ><MdOutlineClear id="clear-icon" onClick={onSearchIconClick} data-testid="click-clear-icon" /></li> :
+                            <li ><FaSearch id="search-icon" onClick={onSearchIconClick} data-testid="click-search-icon" /></li>
                         }
                     </ul>
                 </div>

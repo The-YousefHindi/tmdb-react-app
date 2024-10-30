@@ -1,9 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import '@testing-library/jest-dom';
 import MovieItem from "../components/MovieItem/MovieItem";
-import MovieList from "../components/MovieList/MovieList";
-import Body from "../components/Body/Body";
-
 
 
 describe('Movie Item Component', () => {
