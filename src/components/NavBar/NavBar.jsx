@@ -54,7 +54,7 @@ export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSide
             <div id="navbar-content">
                 <div id="header-left">
                     <FaList onClick={handleMobileSideList} className={`mobile-side-list ${isMobileSideListOpen && 'open'}`}/>
-                    <img id="header-logo" src={navBarLogo} alt="TMDB LOGO" onClick={handleNavigateToHome}/>
+                    <img id="header-logo" src={navBarLogo} alt="TMDB LOGO" onClick={handleNavigateToHome} data-testid="header-logo" />
                     <ul id="header-left-list" >
                         <PhonyWrapper 
                         onMouseEnter={() => handleNavBarListHover(1)}
