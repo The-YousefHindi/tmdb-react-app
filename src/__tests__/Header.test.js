@@ -2,7 +2,6 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import '@testing-library/jest-dom';
 import Header from "../components/Header/Header";
 import { MemoryRouter } from "react-router-dom";
-import NavBar from "../components/NavBar/NavBar";
 
 
 
