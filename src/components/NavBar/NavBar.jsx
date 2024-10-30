@@ -77,7 +77,7 @@ export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSide
                         onMouseEnter={() => handleNavBarListHover(2)}
                         onMouseLeave={() => handleHoverLeave()}
                         >
-                            <li>TV Shows</li>
+                            <li data-testid="tvshows-navbar-hover" >TV Shows</li>
                             <div className="phony">
                                 {(hoverListIndex === 2) &&
                                 <NavBarHoverList>
@@ -93,7 +93,7 @@ export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSide
                         onMouseEnter={() => handleNavBarListHover(3)}
                         onMouseLeave={() => handleHoverLeave()}
                         >
-                            <li>People</li>
+                            <li data-testid="people-navbar-hover" >People</li>
                             <div className="phony">
                                 {(hoverListIndex === 3) &&
                                 <NavBarHoverList>
@@ -105,7 +105,7 @@ export default function NavBar({ searchIconClick,onSearchIconClick, isMobileSide
                         onMouseEnter={() => handleNavBarListHover(4)}
                         onMouseLeave={() => handleHoverLeave()}
                         >
-                        <li>More</li>
+                        <li data-testid="more-navbar-hover" >More</li>
                         <div className="phony">
                             {(hoverListIndex === 4) &&
                             <NavBarHoverList>

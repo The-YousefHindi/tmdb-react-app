@@ -93,5 +93,86 @@ describe('Header Component', () => {
 
      })
 
+    test('Hovering over the Movies navbar element toggles on the visibility of its corresponding hover list', () => { 
+        render(
+            <MemoryRouter>
+                <Header />
+            </MemoryRouter>
+        );
+
+        const hoverOverMovies = screen.getByTestId('movies-navbar-hover');
+
+        expect(screen.queryByText('Popular')).not.toBeInTheDocument();
+        expect(screen.queryByText('Now Playing')).not.toBeInTheDocument();
+        expect(screen.queryByText('Upcoming')).not.toBeInTheDocument();
+        expect(screen.queryByText('Top Rated')).not.toBeInTheDocument();
+
+        fireEvent.mouseOver(hoverOverMovies);
+
+        expect(screen.queryByText('Popular')).toBeInTheDocument();
+        expect(screen.queryByText('Now Playing')).toBeInTheDocument();
+        expect(screen.queryByText('Upcoming')).toBeInTheDocument();
+        expect(screen.queryByText('Top Rated')).toBeInTheDocument();
+     })
+
+    test('Hovering over the TV Shows navbar element toggles on the visibility of its corresponding hover list', () => { 
+        render(
+            <MemoryRouter>
+                <Header />
+            </MemoryRouter>
+        );
+
+        const hoverOverTVShows = screen.getByTestId('tvshows-navbar-hover');
+
+        expect(screen.queryByText('Popular')).not.toBeInTheDocument();
+        expect(screen.queryByText('Airing Today')).not.toBeInTheDocument();
+        expect(screen.queryByText('On TV')).not.toBeInTheDocument();
+        expect(screen.queryByText('Top Rated')).not.toBeInTheDocument();
+
+        fireEvent.mouseOver(hoverOverTVShows);
+
+        expect(screen.queryByText('Popular')).toBeInTheDocument();
+        expect(screen.queryByText('Airing Today')).toBeInTheDocument();
+        expect(screen.queryByText('On TV')).toBeInTheDocument();
+        expect(screen.queryByText('Top Rated')).toBeInTheDocument();
+    })
+
+    test('Hovering over the People navbar element toggles on the visibility of its corresponding hover list', () => { 
+        render(
+            <MemoryRouter>
+                <Header />
+            </MemoryRouter>
+        );
+
+        const hoverOverPeople = screen.getByTestId('people-navbar-hover');
+
+        expect(screen.queryByText('Popular People')).not.toBeInTheDocument();
+
+        fireEvent.mouseOver(hoverOverPeople);
+
+        expect(screen.queryByText('Popular People')).toBeInTheDocument();
+    })
+
+    test('Hovering over the More navbar element toggles on the visibility of its corresponding hover list', () => { 
+        render(
+            <MemoryRouter>
+                <Header />
+            </MemoryRouter>
+        );
+
+        const hoverOverMore = screen.getByTestId('more-navbar-hover');
+
+        expect(screen.queryByText('Discussions')).not.toBeInTheDocument();
+        expect(screen.queryByText('Leaderboard')).not.toBeInTheDocument();
+        expect(screen.queryByText('Support')).not.toBeInTheDocument();
+        expect(screen.queryByText('API')).not.toBeInTheDocument();
+
+        fireEvent.mouseOver(hoverOverMore);
+
+        expect(screen.queryByText('Discussions')).toBeInTheDocument();
+        expect(screen.queryByText('Leaderboard')).toBeInTheDocument();
+        expect(screen.queryByText('Support')).toBeInTheDocument();
+        expect(screen.queryByText('API')).toBeInTheDocument();
+    })
     
 })
