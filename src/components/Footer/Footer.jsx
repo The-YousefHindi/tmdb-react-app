@@ -7,7 +7,7 @@ export default function Footer() {
             <div id="footer-content" data-testid="footer-content">
                 <div id="left-side">
                     <img id="footer-logo" src={footerLogo} alt="Footer Logo" />
-                    <p id="user-greeting">Hi User!</p>
+                    <p id="user-greeting">Hi Stranger!</p>
                 </div>
                 <div id="right-side">
                     <table>

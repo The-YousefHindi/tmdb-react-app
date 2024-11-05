@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import MovieItem from "../MovieItem/MovieItem";
 import MovieListWrapper from "./MovieListWrapper.styles";
+import axios from "axios";
 
 export default function MovieList({ buttonClicked, setButtonClicked,
      sortingChoice, searchButtonClicked, setSearchButtonClicked, filterChoices
@@ -30,9 +31,9 @@ export default function MovieList({ buttonClicked, setButtonClicked,
         let url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&page=${page}&sort_by=${sortingChoice[1]}&with_genres=${filterChoices.join(",")}`;
 
         
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
+        axios.get(url)
+            .then((response) => {
+                const data = response.data; 
                 if (data.results) {
                     if (page > 1) {
                         setMovies((prevMovies) => [...prevMovies, ...data.results]); // Append movies
